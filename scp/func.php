@@ -1,7 +1,4 @@
 <?php
-
-use LDAP\Result;
-
     function curl_defualt($ch, $r){
         curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 2);
         curl_setopt($ch,CURLOPT_CONNECTTIMEOUT_MS, 1000);
@@ -34,7 +31,12 @@ use LDAP\Result;
         }
         return $ret;
     }
-
-
-
+    function get_sensor_p($id){
+        $ret = "";
+        $ch = curl_init("https://dt.miet.ru/ppo_it/api/hum/$id");
+        $result = curl_defualt($ch, true);
+        $result = json_decode($result, true);
+        $ret = $result["humidity"];
+        return($ret);
+    }
 ?>
