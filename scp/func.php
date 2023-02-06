@@ -38,5 +38,14 @@
         $result = json_decode($result, true);
         $ret = $result["humidity"];
         return($ret);
+    
+    }
+    function ns_d($db, $id, $type, $result){
+        $date = date("Y-m-d H:i:s");
+        $sql = 'INSERT INTO `sensor`(`id_tw`, `type`, `date`, `res`) VALUES ('.$id.','.$type.','.$date.', '.$result.')';
+        $result = mysqli_query($db, $sql);
+
+
+
     }
 ?>
