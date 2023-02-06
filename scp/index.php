@@ -1,5 +1,6 @@
 <?php 
     include_once 'func.php';
+    include_once 'MySQL.php';
     $t_s = 0;
     $hs = 0;
     for($i = 1; $i<=4; $i++){
@@ -16,5 +17,14 @@
         $h = get_sensor_p($i);
         echo 'влажность почвы #'.$i.' h='.$h. '<br>';   
     };
-   
+    $db = db();
+    $sql = "SELECT * FROM `sensor` WHERE 1";
+    $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            $date = $row["date"];
+            $res = $row["res"];
+        }
+    }
 ?>
