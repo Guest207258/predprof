@@ -40,6 +40,18 @@
         return($ret);
     
     }
+    function am($array){
+        $b = [];
+        for ($i=0; $i < count($array[0]); $i++) { 
+            $bc = 0;
+            for ($k=0; $k < count($array); $k++) { 
+                $bc += $array[$k][$i];
+            }
+            $bc = $bc/count($array);
+            $b[$i] = $bc;
+        }
+        return $b;
+    }
     function ns_d($db, $id, $type, $result){
         $date = date("Y-m-d H:i:s");
         $sql = 'INSERT INTO `sensor`(`id_tw`, `type`, `date`, `res`) VALUES ('.$id.','.$type.',"'.$date.'", "'.$result.'")';

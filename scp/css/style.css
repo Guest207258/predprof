@@ -1,0 +1,27 @@
+.graphs {
+    width: 450px;
+}
+.graphsBox {
+
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.graphsBoxL {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.graphsBoxCR {
+    position: absolute;
+    top: 225px;
+    left: 50%;
+    transform: translate(0,0);
+}
+.graphsBoxCL {
+    position: absolute;
+    top: 225px;
+    right: 50%;
+    transform: translate(0,0);
+}
